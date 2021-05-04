@@ -40,14 +40,14 @@ const readGamesFromFile = (filename) => {
     return new Promise(promiseCallback);
 };
 
+// Ler o arquivo JSON
+// Fazer um loop entre cada um dos itens
+// Salvar cada um dos itens no banco
+
 const storeGame = (data) => {
     const game = new Game(data);
     return game.save();
 }
-
-// Ler o arquivo JSON
-// Fazer um loop entre cada um dos itens
-// Salvar cada um dos itens no banco
 
 const importGames = async () => {
     await connectToDB();
