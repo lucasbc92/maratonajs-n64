@@ -1,0 +1,27 @@
+### Insert Game
+POST http://localhost:3333/games/
+content-type: application/json
+
+{
+    "title": "Lucas' Game",
+    "otherTitles": ["Bueno's Game"],
+    "publishers": ["Nintendo"],
+    "developers": ["Rare"],
+    "genres": ["Sports"],
+    "firstReleased": "2021-03-01T00:00:00.000Z",
+    "usaRelease": "2021-03-01T00:00:00.000Z",
+    "japanRelease": "2021-03-01T00:00:00.000Z",
+    "euroRelease": "2021-03-01T00:00:00.000Z"
+}
+
+### Update Game
+PUT http://localhost:3333/games/60942c94e02cf431a060130f
+content-type: application/json
+
+{
+    "title": "Lucas Bueno Cesario's Game"
+}
+
+### Delete Game
+DELETE http://localhost:3333/games/60942c94e02cf431a060130f
+content-type: application/json

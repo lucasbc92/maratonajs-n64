@@ -28,9 +28,42 @@ router.get('/', async (req, res) => {
     const result = await Games.find(criteria);
 
     return res.json({
-        message: 'Games OK',
+        message: 'Games found',
         data: result,
     })
-})
+});
+
+router.post('/', async (req, res) => {
+   const { body } = req;
+
+    const data = await Games.store(body);
+
+   return res.json({
+       message: "Game stored", data
+   });
+});
+
+router.put('/:id', async (req, res) => {
+    const { body } = req;
+    const { id } = req.params;
+
+    const game = await Games.update(id, body);
+    
+    return res.json({
+        message: 'Game updated',
+        data: game,
+    })
+
+});
+
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+
+    await Games.destroy(id);
+
+    return res.json({
+        message: "Game deleted", data: {}
+    });
+});
 
 module.exports = router;
